@@ -7,16 +7,14 @@ int cbinsearch(int *arr, int size, int value) {
 
     while (left <= right) {
         int mid = left + (right - left) / 2;
-
         if (arr[mid] == value) {
             count++;
-            // Поиск всех вхождений числа в массиве
             int i = mid - 1;
             while (i >= 0 && arr[i] == value) {
                 count++;
                 i--;
             }
-            i = mid + 1;
+                i = mid + 1;
             while (i < size && arr[i] == value) {
                 count++;
                 i++;
@@ -28,7 +26,6 @@ int cbinsearch(int *arr, int size, int value) {
             right = mid - 1;
         }
     }
-
     return count;
 }
 
@@ -37,7 +34,6 @@ int main() {
     int size = sizeof(arr) / sizeof(arr[0]);
     int value = 2;
     int result = cbinsearch(arr, size, value);
-
     std::cout << "Number of occurrences of " << value << " in the array: " << result << std::endl;
   return 0; // если ничего не найдено
 }
