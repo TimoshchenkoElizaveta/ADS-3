@@ -8,15 +8,15 @@ int cbinsearch(int *arr, int size, int value) {
         int mid = left + (right - left) / 2;
         if (arr[mid] == value) {
             count++;
-            int i = mid - 1;
-            while (i >= 0 && arr[i] == value) {
-                count++;
-                i--;
-            }
-            i = mid + 1;
+            int i = mid + 1;
             while (i < size && arr[i] == value) {
                 count++;
                 i++;
+            }
+            i = mid - 1;
+            while (i >= 0 && arr[i] == value) {
+                count++;
+                i--;
             }
             return count;
         } else if (arr[mid] < value) {
@@ -25,14 +25,6 @@ int cbinsearch(int *arr, int size, int value) {
             right = mid - 1;
         }
     }
-    return count;
-}
-int main() {
-    int arr[] = {1, 2, 2, 3, 4, 5, 5, 5, 6, 7};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int value = 5;
-    
-    int result = cbinsearch(arr, size, value);
-    printf("%dn", result);
+    return 0;
   return 0; // если ничего не найдено
 }
